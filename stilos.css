@@ -1,0 +1,1168 @@
+/* General */
+body {
+    background-image: url("imagenes/FONDOHD.PNG");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    padding-top: 100px; /* Espacio para el encabezado fijo */
+}
+
+
+
+/* Encabezado */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(45deg, #2d6007, #4ca1af);
+    padding: 15px 0;
+    color: rgb(84, 14, 14);
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    height: 80px;
+    border-radius: 10px;
+}
+
+/* Navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #eaf2e9;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #0ba336;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #1dd11a;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Estilo para el icono de menú hamburguesa */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 24px;
+    z-index: 2000;
+}
+
+/* Líneas del icono de hamburguesa */
+.menu-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: all 0.3s ease;
+}
+
+/* Posición de las líneas */
+.menu-icon span:nth-child(1) {
+    top: 0px;
+}
+.menu-icon span:nth-child(2) {
+    top: 10px;
+}
+.menu-icon span:nth-child(3) {
+    top: 20px;
+}
+
+/* Efecto de expansión en hover */
+.menu-icon:hover span:nth-child(1) {
+    width: 120%;
+    left: -10%;
+}
+.menu-icon:hover span:nth-child(2) {
+    width: 100%;
+}
+.menu-icon:hover span:nth-child(3) {
+    width: 120%;
+    left: -10%;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Mostrar icono de hamburguesa */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Ocultar el menú y mostrarlo al pasar sobre el icono */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(45deg, #2d6007, #4ca1af);
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+
+    .menu-icon:hover + nav ul,
+    nav ul:hover {
+        display: flex;
+    }
+}
+
+/* Portada */
+.portada {
+    position: relative;
+    height: 100vh;
+    background-image: url("imagenes/bodega1.JPG.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+}
+
+/* Efecto de overlay con degradado para un aspecto moderno */
+.portada::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(12, 48, 107, 0.8), rgba(0, 0, 0, 0.3)); /* Degradado moderno */
+    z-index: 1; /* Asegura que el overlay esté detrás del contenido */
+}
+
+/* Contenido de la portada */
+.portada-content {
+    position: relative;
+    z-index: 2; /* Asegura que el texto esté sobre el overlay */
+    background: rgba(255, 255, 255, 0.1); /* Fondo blanco translúcido */
+    padding: 30px 40px;
+    border-radius: 15px;
+    max-width: 700px;
+    backdrop-filter: blur(5px); /* Efecto de desenfoque para fondo */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidad */
+}
+
+/* Estilo para el título de la portada */
+.portada-content h1 {
+    font-size: rem; /* Tamaño grande del título */
+    margin: 0;
+    font-weight: 1000;
+    line-height: 1.2;
+    color: #f7df00; /* Amarillo para un contraste moderno */
+    text-transform: uppercase; /* Mayúsculas para un aspecto llamativo */
+    letter-spacing: 2px; /* Espacio entre letras */
+}
+
+/* Estilo para el párrafo de la portada */
+.portada-content p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #e0e0e0;
+}
+
+/* Estilo para el botón de la portada */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #f7df00;
+    color: #0c306b;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px; /* Bordes completamente redondeados */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ffd700; /* Color más claro en hover */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Secciones Generales */
+main section {
+    padding: 40px 20px;
+    background-color: #59aa7f;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+main h2 {
+    margin-bottom: 20px;
+    color: #1b6c26;
+}
+
+p, ul {
+    line-height: 1.6;
+}
+
+/* Estilos para la Sección "Nuestra Historia" */
+/* Sección de Historia con imagen de fondo */
+.historia {
+    background: linear-gradient(135deg, #16b428 50%, #199854 50%); /* Degradado con tonos de naranja */
+    padding: 20px;
+    overflow: hidden; /* Para asegurar que el contenido no se salga del contenedor */
+}
+
+.historia-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+}
+
+.historia-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.historia-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.historia-image:hover img {
+    transform: scale(1.1); /* Efecto de zoom en la imagen */
+    filter: brightness(80%); /* Oscurecer la imagen al pasar el ratón */
+}
+
+.historia-text {
+    color: #fff;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente para mejorar la legibilidad */
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.historia-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffd700; /* Amarillo dorado para el título */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.historia-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #1cb23d, #0c4f0d); /* Degradado en el botón */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #0d930b, #0cb014); /* Degradado invertido en hover */
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
+
+/* Sección Nuestros Servicios */
+.servicios {
+    padding: 40px;
+    background-color: #f8f9fa; /* Color de fondo suave para la sección */
+}
+
+.servicios h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.servicios-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.servicio-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.servicio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.servicio-imagen {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.servicio-icono {
+    font-size: 3rem;
+    color: #136616; /* Color vibrante para los iconos */
+    margin-bottom: 15px;
+}
+
+.servicio-info h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.servicio-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.btn-info {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #20850e; /* Color de fondo del botón */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-info:hover {
+    background: #1f8a1c; /* Color de fondo en hover */
+    transform: scale(1.05);
+}
+
+
+/* Efecto hover para las tarjetas */
+.servicio-card:hover {
+    transform: translateY(-10px); /* Efecto de elevación */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+/* Estilo general para la sección de clientes */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.clientes {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin: 40px auto;
+    max-width: 1200px;
+    position: relative; /* Permite efectos animados */
+    overflow: hidden; /* Oculta cualquier desbordamiento de elementos animados */
+}
+
+.clientes h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #0056b3; /* Color azul para un toque moderno */
+    position: relative; /* Posiciona el título relativo al contenedor */
+}
+
+.clientes h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: #c5d3d5; /* Color vibrante para una línea de énfasis */
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.descripcion {
+    font-size: 1.3em;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.clientes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 25px;
+}
+
+.cliente-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Oculta elementos que se animan dentro */
+}
+
+.cliente-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(138, 147, 141, 0.5), rgba(0, 179, 15, 0.5));
+    transition: all 0.5s ease;
+    transform: skewX(-30deg);
+    z-index: 0;
+}
+
+.cliente-card:hover::before {
+    transform: translateX(200%) skewX(-30deg);
+}
+
+.cliente-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cliente-img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    z-index: 1; /* Asegura que la imagen esté por encima de las sombras animadas */
+    position: relative;
+}
+
+.cliente-info {
+    position: relative;
+    z-index: 1;
+}
+
+.cliente-info h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cliente-info p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+
+/* Estilo general para la sección de áreas verdes y kioskos */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.areas-verdes {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #e8f5e9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin: 40px auto;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.areas-verdes h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #2e7d32;
+    position: relative;
+}
+
+.areas-verdes h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: #66bb6a;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.areas-verdes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.area-card {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.area-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.area-video {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.area-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el video para que cubra todo el contenedor */
+    transition: transform 0.4s ease;
+}
+
+.area-card:hover .area-video video {
+    transform: scale(1.1);
+}
+
+.area-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(46, 125, 50, 0.8);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.area-card:hover .area-info {
+    transform: translateY(0);
+}
+
+.area-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.area-info p {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 768px) {
+    .areas-verdes-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Estilo para la sección "Nuestros Clientes" */
+
+
+#bodega-conocida {
+    flex: 1 1 300px; /* Cada elemento ocupa un ancho mínimo de 300px */
+    background-color: white; /* Fondo blanco para contraste */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    padding: 20px; /* Espacio interno */
+    text-align: center; /* Centrar el texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+#bodega-conocida:hover {
+    transform: translateY(-10px); /* Efecto de elevación al pasar el ratón */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa en hover */
+}
+
+#bodega-conocida img {
+    width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+    max-width: 150px; /* Tamaño máximo para las imágenes */
+    height: auto; /* Mantener la proporción de la imagen */
+    border-radius: 50%; /* Imágenes redondeadas */
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra alrededor de las imágenes */
+}
+
+#bodega-conocida p {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    color: #333; /* Texto en gris oscuro */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin-top: 10px;
+}
+
+/* Áreas Verdes y Kioskos */
+#areas-verdes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.areas-verdes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espacio entre tarjetas */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar contenedor */
+}
+
+.area-card {
+    width: 300px; /* Ancho de cada tarjeta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para cada tarjeta */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+
+/* Sección de Áreas Verdes con Diseño Divertido */
+.areas-verdes {
+    padding: 60px 20px;
+    background-color: #a4e4b6; /* Fondo verde brillante */
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.areas-verdes::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float 5s infinite ease-in-out alternate;
+}
+
+.areas-verdes::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float 5s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+.areas-verdes h2 {
+    font-size: 2.5rem;
+    color: #1e4d2b; /* Texto oscuro sobre fondo verde */
+    margin-bottom: 20px;
+    font-family: 'Verdana', sans-serif;
+}
+
+.areas-verdes p {
+    font-size: 1.2rem;
+    color: #1e4d2b; /* Texto oscuro */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Botón para áreas verdes */
+.areas-verdes .btn-primary {
+    color: #ffffff;
+    background-color: #1e4d2b; /* Botón oscuro para contraste */
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.areas-verdes .btn-primary:hover {
+    background-color: #14381f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación para iconos decorativos */
+.areas-verdes .decorative-icon {
+    width: 50px;
+    height: 50px;
+    background: #7ec850;
+    border-radius: 50%;
+    position: absolute;
+    animation: spin 6s linear infinite;
+}
+
+
+/* Estilo para la sección de Conócenos */
+.conocenos {
+    background-color: #f8f9fa; /* Color de fondo suave */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.conocenos h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.conocenos-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Permite que el contenido se adapte en pantallas más pequeñas */
+}
+
+.video {
+    flex: 1;
+    min-width: 300px; /* Ancho mínimo para el video */
+}
+
+.descripcion {
+    flex: 1;
+    min-width: 300px; /* Ancho mínimo para la descripción */
+    text-align: left;
+}
+
+.descripcion h3 {
+    font-size: 1.8rem;
+    color: #1d8222; /* Color azul para el encabezado */
+    margin-bottom: 15px;
+}
+
+.descripcion p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.valores-mision-vision {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #007bff, #00c851);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.valores h3, .mision h3, .vision h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.valores p, .mision p, .vision p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Efecto de gradiente y estilo en las tarjetas */
+.valores, .mision, .vision {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.valores::after, .mision::after, .vision::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, #007bff 0%, #00c851 100%);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Estilos para la sección "Únete a Nuestro Equipo" */
+/* Estilo de la sección Únete a Nuestro Equipo */
+.join-team {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #37b222, #343435);
+    max-width: 500px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.join-header h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Estilo del Formulario */
+.join-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+    width: 100%; /* Asegura que cada campo de entrada ocupe todo el ancho disponible */
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%; /* Para que todos los campos de entrada tengan el mismo ancho */
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f7f8fa;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Botón de Envío */
+.submit-btn {
+    width: 100%; /* Asegura que el botón ocupe todo el ancho del formulario */
+    padding: 12px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .join-team {
+        padding: 20px;
+    }
+
+    .join-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        font-size: 1rem;
+    }
+}
+/* Estilos generales para la sección de contacto */
+#contacto {
+    background-color: #f8f8f8;
+    padding: 50px 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.contacto-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 2px solid #b22222; /* Línea decorativa */
+    padding-top: 20px;
+}
+
+/* Logo */
+.contacto-logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.contacto-logo img {
+    max-width: 150px;
+}
+
+.contacto-informacion {
+    flex: 2;
+    padding: 20px;
+}
+
+.contacto-informacion h2 {
+    font-size: 24px;
+    color: #b22222; /* Color de acento */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.contacto-informacion p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contacto-detalle {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.contacto-detalle i {
+    margin-right: 8px;
+    color: #b22222; /* Color de acento */
+}
+
+.contacto-detalle a {
+    color: #b22222;
+    text-decoration: none;
+}
+
+.contacto-detalle a:hover {
+    text-decoration: underline;
+}
+
+.contacto-mapa {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.contacto-mapa h3 {
+    font-size: 18px;
+    color: #b22222;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contacto-mapa img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+}
+
+IDEAS
+#ideal-para {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.ideal-para-contenedor {
+    background-color: #8dc63f; /* Verde de fondo */
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.ideal-para-izquierda {
+    
+    color: white;
+    flex: 1;
+    padding: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ideal-para-izquierda h2 {
+    font-size: 32px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.logo-fondo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.logo-fondo img {
+    max-width: 250px;
+    height: auto;
+}
+
+.texto-fondo {
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    z-index: 2;
+}
+
+.ideal-para-derecha {
+    background-color: #0071bc; /* Azul de fondo */
+    color: white;
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lista-ideal {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-ideal li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.lista-ideal i {
+    color: #8dc63f; /* Verde para el ícono de check */
+    margin-right: 8px;
+    font-size: 20px;
+}
